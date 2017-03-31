@@ -103,7 +103,7 @@ Route::get('Mahasiswa/hapus/{Mahasiswa}', 'MahasiswaController@hapus');
 
 //------------------------------------------------------------------
 
-Route::get('Dosen/{Dosen}', 'DosenController@lihat');
+Route::get('Dosen/lihat/{Dosen}', 'DosenController@lihat');
 Route::post('Dosen/simpan', 'DosenController@simpan');
 Route::get('Dosen/edit/{Dosen}', 'DosenController@edit');
 Route::post('Dosen/edit/{Dosen}', 'DosenController@update');

@@ -9,6 +9,8 @@ use App\Dosen_Matakuliah;
 
 class Dosen_MatakuliahController extends Controller
 {
+    protected $informasi = 'Gagal Melakukan Aksi';
+    
     public function awal()
     {
     	return "Welcome and Hello from Dosen_MatakuliahController";
