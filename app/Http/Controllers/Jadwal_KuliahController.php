@@ -15,6 +15,7 @@ use App\Matakuliah;
 class Jadwal_KuliahController extends Controller
 {
     protected $informasi = 'Gagal Melakukan Aksi';
+    
     public function awal()
     {
         $semuaJadwal_Kuliah = Jadwal_Kuliah::all();
@@ -24,16 +25,16 @@ class Jadwal_KuliahController extends Controller
     }
     public function tambah()
     {
-        $mahasiswa = new Mahasiswa;
-        $ruangan = new Ruangan;
-        $dosen_matakuliah = new Dosen_Matakuliah;
+        $Mahasiswa = new Mahasiswa;
+        $Ruangan = new Ruangan;
+        $Dosen_Matakuliah = new Dosen_Matakuliah;
         return view('Jadwal_Kuliah.tambah',compact('Mahasiswa','Ruangan','Dosen_Matakuliah'));
     	// return $this->simpan();
     }
     public function simpan(Request $input)
     {
-        $jadwal_kuliah = new Jadwal_Matakuliah($input->only('ruangan_id','dosen_matakuliah_id','   mahasiswa_id'));
-            if($jadwal_kuliah->save()) $this->informasi = "Jadwal Mahasiswa berhasil disimpan";
+        $Jadwal_Kuliah = new Jadwal_Kuliah($input->only('ruangan_id','dosen_matakuliah_id','   mahasiswa_id'));
+            if($Jadwal_Kuliah->save()) $this->informasi = "Jadwal Mahasiswa berhasil disimpan";
             return redirect('Jadwal_Kuliah')->with(['informasi'=>$this->informasi]);
     	// $jadwal_kuliah = new Jadwal_Kuliah();
     	// $jadwal_kuliah->mahasiswa_id = 1;
@@ -43,14 +44,14 @@ class Jadwal_KuliahController extends Controller
     	// return "Data dengan jadwal id mahasiswa {$jadwal_kuliah->mahasiswa_id} telah disimpan";
     }
     public function lihat($id){
-        $jadwal_kuliah = Jadwal_Kuliah::find($id);
+        $Jadwal_Kuliah = Jadwal_Kuliah::find($id);
         return view('Jadwal_Kuliah.lihat',compact('Jadwal_Kuliah'));
     }
     public function edit($id){
-        $jadwal_kuliah = Jadwal_Kuliah::find($id);
-        $mahasiswa = new Mahasiswa;
-        $ruangan = new Ruangan;
-        $dosen_matakuliah = new Dosen_Matakuliah;
+        $Jadwal_Kuliah = Jadwal_Kuliah::find($id);
+        $Mahasiswa = new Mahasiswa;
+        $Ruangan = new Ruangan;
+        $Dosen_Matakuliah = new Dosen_Matakuliah;
         return view('Jadwal_Kuliah.edit',compact('Mahasiswa','Ruangan','Dosen_Matakuliah','Jadwal_Kuliah'));
     }
     public function update($id, Request $input)

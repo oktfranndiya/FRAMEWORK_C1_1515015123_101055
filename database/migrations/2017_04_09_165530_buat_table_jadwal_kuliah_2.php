@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BuatTabelJadwalKuliah extends Migration
+class BuatTableJadwalKuliah2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class BuatTabelJadwalKuliah extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_kuliah', function (Blueprint $table) {
+         Schema::create('jadwal_kuliah', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('mahasiswa_id')->unsigned();
             $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onDelete('cascade')->onUpdate('cascade');
@@ -31,6 +31,6 @@ class BuatTabelJadwalKuliah extends Migration
      */
     public function down()
     {
-        Schema::drop('jadwal_kuliah');
+        // Schema::drop('jadwal_kuliah');
     }
 }

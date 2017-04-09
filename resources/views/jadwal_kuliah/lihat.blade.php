@@ -18,17 +18,17 @@
 		<tr>
 			<td>Nama Dosen</td>
 			<td>:</td>
-			<td>{{ $Jadwal_Kuliah->dosen_matakuliah->nip }}</td>
+			<td>{{ $Jadwal_Kuliah->Dosen_Matakuiah->nip }}</td>
 		</tr>
 		<tr>
 			<td>NIP Dosen</td>
 			<td>:</td>
-			<td>{{ $Jadwal_Kuliah->dosen_matakuliah->dosen->nip }}</td>
+			<td>{{ $Jadwal_Kuliah->Dosen_Matakuliah->Dosen->nip }}</td>
 		</tr>
 		<tr>
 			<td>Nama Matakuliah</td>
 			<td>:</td>
-			<td>{{ $Jadwal_Kuliah->dosen_matakuliah->matakuliah->title }}</td>
+			<td>{{ $Jadwal_Kuliah->Dosen_Matakuliah->Matakuliah->title }}</td>
 		</tr>
 
 		<tr>

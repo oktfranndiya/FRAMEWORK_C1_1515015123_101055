@@ -15,7 +15,7 @@ class Mahasiswa extends Model
     }
     public function Jadwal_Kuliah()
     {
-      return $this->hasMany(Jadwal_Kuliah::class, 'Mahasiswa_id');
+      return $this->hasMany(Jadwal_Kuliah::class, 'mahasiswa_id');
     }
     public function listMahasiswaDanNim()
     {

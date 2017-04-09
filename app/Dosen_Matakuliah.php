@@ -62,22 +62,22 @@ class Dosen_Matakuliah extends Model
     }
 
     public function getNamadosenAttribute(){
-        return $this->dosen->nama;
+        return $this->Dosen->nama;
     }
 
     public function getNipdosenAttribute(){
-        return $this->dosen->nip;
+        return $this->Dosen->nip;
     }
     
     public function getTitlematakuliahAttribute(){
-        return $this->matakuliah->title;
+        return $this->Matakuliah->title;
     }
     
     public function listDosenDanMatakuliah()
     {
         $out = [];
         foreach ($this->all() as $dsnMtk) {
-            $out[$dsnMtk->id] = "{$dsnMtk->dosen->nama} {$dsnMtk->dosen->nip} (Matakuliah {$dsnMtk->matakuliah->title})";
+            $out[$dsnMtk->id] = "{$dsnMtk->Dosen->nama} {$dsnMtk->Dosen->nip} (Matakuliah {$dsnMtk->Matakuliah->title})";
         }
         return $out;
     }

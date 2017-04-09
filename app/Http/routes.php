@@ -111,8 +111,8 @@ Route::get('Dosen/hapus/{Dosen}', 'DosenController@hapus');
 
 //------------------------------------------------------------------
 
+Route::get('Dosen_Matakuliah/tambah/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@tambah');
 Route::get('Dosen_Matakuliah/lihat/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@lihat');
-Route::get('Dosen_Matakuliah/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@lihat');
 Route::post('Dosen_Matakuliah/simpan', 'Dosen_MatakuliahController@simpan');
 Route::get('Dosen_Matakuliah/edit/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@edit');
 Route::post('Dosen_Matakuliah/edit/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@update');
@@ -120,7 +120,9 @@ Route::get('Dosen_Matakuliah/hapus/{Dosen_Matakuliah}', 'Dosen_MatakuliahControl
 
 //------------------------------------------------------------------
 
-Route::get('Jadwal_Kuliah/{Jadwal_Kuliah}', 'Jadwal_KuliahController@lihat');
+Route::get('Jadwal_Kuliah','Jadwal_KuliahController@awal');
+Route::get('Jadwal_Kuliah/tambah', 'Jadwal_KuliahController@tambah');
+Route::get('Jadwal_Kuliah/lihat/{Jadwal_Kuliah}', 'Jadwal_KuliahController@lihat');
 Route::post('Jadwal_Kuliah/simpan', 'Jadwal_KuliahController@simpan');
 Route::get('Jadwal_Kuliah/edit/{Jadwal_Kuliah}', 'Jadwal_KuliahController@edit');
 Route::post('Jadwal_Kuliah/edit/{Jadwal_Kuliah}', 'Jadwal_KuliahController@update');

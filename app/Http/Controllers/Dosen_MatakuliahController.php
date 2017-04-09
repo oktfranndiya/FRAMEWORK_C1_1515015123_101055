@@ -22,10 +22,10 @@ class Dosen_MatakuliahController extends Controller
     }
     public function tambah()
     {
-        $dosen = new Dosen;
-        $matakuliah = new Matakuliah;
+        $Dosen = new Dosen;
+        $Matakuliah = new Matakuliah;
         return view('Dosen_Matakuliah.tambah',compact('Dosen','Matakuliah'));
-        return $this->simpan();
+        // return $this->simpan();
     	// return $this->simpan();
     }
     public function simpan(Request $input)
@@ -43,13 +43,13 @@ class Dosen_MatakuliahController extends Controller
     	// return "Data dengan id Dosen {$dosen_matakuliah->dosen_id} telah disimpan";
     }
     public function lihat($id){
-        $dosen_matakuliah = Dosen_Matakuliah::find($id);
+        $Dosen_Matakuliah = Dosen_Matakuliah::find($id);
         return view('Dosen_Matakuliah.lihat',compact('Dosen_Matakuliah'));
     }
     public function edit($id){
-        $dosen_matakuliah = Dosen_Matakuliah::find($id);
-        $dosen = new Dosen;
-        $matakuliah = new Matakuliah;
+        $Dosen_Matakuliah = Dosen_Matakuliah::find($id);
+        $Dosen = new Dosen;
+        $Matakuliah = new Matakuliah;
         return view('Dosen_Matakuliah.edit',compact('Dosen','Matakuliah','Dosen_Matakuliah'));
     }
     public function update($id,Request $input)
