@@ -8,38 +8,38 @@
 		<tr>
 			<td>Nama Dosen</td>
 			<td>:</td>
-			<td>{{ $dosen->nama }}</td>
+			<td>{{ $Dosen->nama }}</td>
 		</tr>
 		<tr>
 			<td>NIP</td>
 			<td>:</td>
-			<td>{{ $dosen->nip }}</td>
+			<td>{{ $Dosen->nip }}</td>
 		</tr>
 		<tr>
 			<td>Alamat</td>
 			<td>:</td>
-			<td>{{ $dosen->alamat }}</td>
+			<td>{{ $Dosen->alamat }}</td>
 		</tr>
 		<tr>
 			<td>Username</td>
 			<td>:</td>
-			<td>{{ $dosen->pengguna->username }}</td>
+			<td>{{ $Dosen->pengguna->username }}</td>
 		</tr>
 		<tr>
 			<td>Password</td>
 			<td>:</td>
-			<td>{{ $dosen->pengguna->password }}</td>
+			<td>{{ $Dosen->pengguna->password }}</td>
 		</tr>
 
 		<tr>
 			<td class="col-xs-4">Dibuat tanggal</td>
 			<td class="col-cs-1">:</td>
-			<td>{{$dosen->created_at}}</td>
+			<td>{{$Dosen->created_at}}</td>
 		</tr>
 		<tr>
 			<td class="col-xs-4">Diupdate tanggal</td>
 			<td class="col-cs-1">:</td>
-			<td>{{$dosen->updated_at}}</td>
+			<td>{{$Dosen->updated_at}}</td>
 		</tr>
 	</table>
 </div>

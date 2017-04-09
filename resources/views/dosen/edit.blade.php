@@ -4,7 +4,7 @@
 	<div class="panel-heading">
 		<strong><a href="{{url('Dosen')}}"><i class="fa text-default fa-chevron-left"></i></a> Perbarui Data Dosen </strong>
 	</div>
-	{!! Form::model($Dosen,['url'=>'Dosen/edit/'.$pengguna->id,'class'=>'form-horizontal']) !!}
+	{!! Form::model($Dosen,['url'=>'Dosen/edit/'.$Dosen->id,'class'=>'form-horizontal']) !!}
 		@include('Dosen.form')
 		<div style="widt:100%;text-align:right; ">
 		<button class="btn btn-info"><i class="fa fa-save"></i> Perbarui</button>	

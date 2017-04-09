@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Mahasiswa;
+use App\pengguna;
 
 class MahasiswaController extends Controller
 {
@@ -30,7 +31,7 @@ class MahasiswaController extends Controller
             $mahasiswa->nama = $input->nama;
             $mahasiswa->nim = $input->nim;
             $mahasiswa->alamat = $input->alamat;
-            if($pengguna->Mahasiswa()->save($ahasiswa)) $this->informasi='Berhasil simpan data';
+            if($pengguna->Mahasiswa()->save($mahasiswa)) $this->informasi='Berhasil simpan data';
         }
         return redirect ('Mahasiswa')->with(['informasi'=>$this->informasi]);     
     // 	$mahasiswa = new Mahasiswa();
@@ -58,25 +59,45 @@ class MahasiswaController extends Controller
         $mahasiswa->nama = $input->nama;
         $mahasiswa->nim = $input->nim;
         $mahasiswa->alamat = $input->alamat;
-        $mahasiswa->pengguna_id = $input->pengguna_id;
-        if(!is_null($input->username)){
+        $mahasiswa->save();
+        // $mahasiswa->pengguna_id = $input->pengguna_id;
+//         if ($mahasiswa->save()){
+        
+//         if ($mahasiswa->pengguna()->save($pengguna)) $this->informasi= 'Berhasil Simpan Data';
+// }
+        //$pengguna = new pengguna($input->only('username'));
+        // return redirect('Mahasiswa/awal')->with(['informasi' => $this->informasi]);
+        if(!is_null($input->username))
+        {
             $pengguna = $mahasiswa->pengguna->fill($input->only('username'));
-                if(!empty($input->password)) $pengguna->password = $input->password;
-                if($pengguna->save()) $this->informasi = 'Berhasil simpan data';
+                
+                if(!empty($input->password)) 
+                $pengguna->password = $input->password;
+                
+                if($pengguna->save()) 
+                $this->informasi = 'Berhasil simpan data';
         }
         else{
             $this->informasi = 'Berhasil simpan data';
         }
-        return redirect ('Mahasiswa') -> with (['informasi'=>$this->informasi]);
+        return redirect ('Mahasiswa')->with(['informasi'=>$this->informasi]);
 }
-    public function hapus($id)
+public function hapus($id)
     {
         $mahasiswa = Mahasiswa::find($id);
-        if($mahasiswa->pengguna()->delete()){
-            if($mahasiswa->delete()) $this->informasi = 'Berhasil hapus data';
-        }
-        
-        return redirect('Mahasiswa')-> with(['informasi'=>$this->informasi]);
+        $informasi = $mahasiswa->delete() ? 'berhasil hapus data' : 'gagal hapus data';
+        return redirect('Mahasiswa')->with(['informasi'=>$informasi]);
+    }
 }
-}
+//     public function hapus($id)
+//     {
+//         $mahasiswa = Mahasiswa::find($id);
+//         if($mahasiswa->pengguna()->delete()){
+//             if($mahasiswa->delete()) {
+//                 $this->informasi = 'Berhasil hapus data';
+//         }
+//         }
+//         return redirect('Mahasiswa')-> with(['informasi' =>$this->informasi]);
+// }
+// }
 

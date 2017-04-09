@@ -11,10 +11,9 @@
 	<thead>
 		<tr>
 			<th>No.</th>
-			<th>nama</th>
-			<th>nip</th>
-			<th>alamat</th>
-			<th>pengguna_id</th>
+			<th>Nama</th>
+			<th>Nip</th>
+			<th>Alamat</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>

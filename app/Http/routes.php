@@ -94,8 +94,8 @@ Route::post('Ruangan/edit/{Ruangan}', 'RuanganController@update');
 Route::get('Ruangan/hapus/{Ruangan}', 'RuanganController@hapus');
 
 //------------------------------------------------------------------
-
 Route::get('Mahasiswa/{Mahasiswa}', 'MahasiswaController@lihat');
+Route::get('Mahasiswa/lihat/{Mahasiswa}', 'MahasiswaController@lihat');
 Route::post('Mahasiswa/simpan', 'MahasiswaController@simpan');
 Route::get('Mahasiswa/edit/{Mahasiswa}', 'MahasiswaController@edit');
 Route::post('Mahasiswa/edit/{Mahasiswa}', 'MahasiswaController@update');
@@ -111,6 +111,7 @@ Route::get('Dosen/hapus/{Dosen}', 'DosenController@hapus');
 
 //------------------------------------------------------------------
 
+Route::get('Dosen_Matakuliah/lihat/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@lihat');
 Route::get('Dosen_Matakuliah/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@lihat');
 Route::post('Dosen_Matakuliah/simpan', 'Dosen_MatakuliahController@simpan');
 Route::get('Dosen_Matakuliah/edit/{Dosen_Matakuliah}', 'Dosen_MatakuliahController@edit');

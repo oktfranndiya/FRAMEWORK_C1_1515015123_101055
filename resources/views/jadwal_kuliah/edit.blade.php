@@ -1,11 +1,12 @@
 @extends('master')
 @section('container')
+
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<strong><a href="{{ url('Mahasiswa') }}"><i class="fa text-default fa-cheron-left"></i></a> Perbarui Data Mahasiswa</strong>
+		<strong><a href="{{ url('Jadwal_Kuliah') }}"><i class="fa text-default fa-cheron-left"></i></a> Perbarui Data Jadwal Mahasiswa </strong>
 	</div>
-	{!! Form::model($mahasiswa,['url'=>'Mahasiswa/edit/'.$mahasiswa->id,'class'=>'form-horizontal']) !!}
-	@include('Mahasiswa.form')
+	{!! Form::model(Jadwal_Kuliah,['url'=>'Jadwal_Kuliah/edit/'.$Jadwal_Kuliah->id,'class'=>'form-horizontal']) !!}
+	@include('jadwal_kuliah.form')
 	<div style="width: 100%; text-align: right;">
 		<button class="btn btn-info"><i class="fa fa-save"></i>Perbaharui</button>
 		<button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i>Ulangi</button>

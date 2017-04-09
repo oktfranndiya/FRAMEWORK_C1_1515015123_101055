@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Dosen;
+use App\pengguna;
 
 class DosenController extends Controller
 {
+    protected $informasi = 'Gagal Melakukan Aksi';
     public function awal()
     {
        return view('Dosen.awal',['data'=>Dosen::all()]);
@@ -21,11 +23,22 @@ class DosenController extends Controller
     }
     public function simpan(Request $input)
     {
-        $dosen = new Dosen();
-        $dosen ->username = $input->username;
-        $pengguna ->password =  $input->password;
-        $informasi = $dosen ->save()?'Berhasil simpan data': 'Gagal simpan data';
-        return redirect('Dosen')->with(['informasi'=>$informasi]);
+        $pengguna = new pengguna($input->only('username','password'));
+        if ($pengguna->save()) {
+            $dosen = new Dosen;
+            $dosen->nama = $input->nama;
+            $dosen->nip = $input->nip;
+            $dosen->alamat = $input->alamat;
+            if ($pengguna->Dosen()->save($dosen)) $this->informasi ='Berhasil Simpan Data';
+        }
+        return redirect('Dosen')->with(['informasi'=>$this->informasi]);
+    }
+        // $dosen = new Dosen();
+        // $dosen ->username = $input->username;
+        // $dosen ->password =  $input->password;
+        // $informasi = $dosen ->save()?'Berhasil simpan data': 'Gagal simpan data';
+        // return redirect('Dosen')->with(['informasi'=>$informasi]);
+
     	// $dosen = new Dosen();
     	// $dosen->nama = 'Rayhan';
     	// $dosen->nip = '694876632';
@@ -33,7 +46,7 @@ class DosenController extends Controller
     	// $dosen->pengguna_id=1;
     	// $dosen->save();
     	// return "Data dengan nama Dosen {$dosen->nama} telah disimpan";
-    }
+    // }
     public function edit($id)
     {
         $dosen = Dosen::find($id);
@@ -47,10 +60,10 @@ class DosenController extends Controller
     public function update($id, Request $input)
     {
         $dosen = Dosen::find($id);
-        $dosen -> nama = $input->nama;
-        $dosen -> nip = $input->nip;
-        $dosen -> alamat = $input->alamat;
-        $dosen -> pengguna_id = $input->pengguna_id;
+        $dosen ->nama = $input->nama;
+        $dosen ->nip = $input->nip;
+        $dosen ->alamat = $input->alamat;
+        // $dosen ->pengguna_id = $input->pengguna_id;
         $informasi = $dosen ->update()?'Berhasil update data': 'Gagal update data';
         return redirect('Dosen')->with(['informasi'=>$informasi]);
 }
